@@ -1,0 +1,14 @@
+[Unit]
+Description=Website formular app
+
+[Service]
+Environment=RUST_APP_LOG="info"
+Environment=ROCKET_ENV=production
+Environment=PORT=8001
+Environment=DATA_STORAGE_DIR=/var/lib/website-formular/
+ExecStart=/usr/bin/website-formular
+# Place static/ directory under /usr/share/website-formular/static
+WorkingDirectory=/usr/share/website-formular
+
+[Install]
+WantedBy=multi-user.target

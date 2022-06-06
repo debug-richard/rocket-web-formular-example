@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+
+    <title>{{ fluent(key="page-title", lang=lang) }}</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="/static/css/fontawesome.min.css" rel="stylesheet">-->
+
+  </head>
+  <body>
+    {% block content %}{% endblock content %}
+    <script defer src="/static/js/bootstrap.min.js"></script>
+    <script defer src="/static/popper/popper.min.js"></script>
+    <footer class="text-center">
+      <p> {{ fluent(key="version", lang=lang) }}: {{ version }} </p>
+      <meta name="Version" content="{{ version }}">
+    </footer>
+  </body>
+</html>

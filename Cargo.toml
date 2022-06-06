@@ -1,0 +1,24 @@
+[package]
+name = "rocket-web-formular-example"
+version = "1.0.0"
+authors = ["You Should Change This <missing@example.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rocket = "0.5.0-rc.2"
+tera = "1.15.0"
+captcha = "0.0.9"
+sha2 = "0.10.2"
+rand = "0.8.5"
+fluent-templates = { version = "0.7.1", features = ["tera"] }
+pretty_env_logger = "0.4.0"
+serde_json = "1.0.81"
+serde = { version = "1.0.137", features = ["derive"] }
+chrono= "0.4.19"
+
+[dependencies.rocket_dyn_templates]
+version = "0.1.0-rc.2"
+features = ["tera"]
+

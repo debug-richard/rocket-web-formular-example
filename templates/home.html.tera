@@ -1,0 +1,63 @@
+{% extends 'base' %}
+
+{% block content %}
+<div class="container">
+    <div class="container my-3">
+        <div class="row justify-content-center text-center">
+            <h1>{% block title %} {{ fluent(key="page-title", lang=lang) }} {% endblock %}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <form method="post">
+        <div class="my-3">
+            <label for="given-name">{{ fluent(key="given-name", lang=lang) }}</label>
+            <input type="text" class="form-control my-1" id="given-name" aria-describedby="givenNameHelp"
+                   name="given_name" required>
+        </div>
+        <div class="my-3">
+            <label for="surname">{{ fluent(key="surname", lang=lang) }}</label>
+            <input type="text" class="form-control my-1" id="surname" aria-describedby="surnameHelp"
+                   name="surname" required>
+        </div>
+        <div class="my-3">
+            <label for="exampleInputEmail1">{{ fluent(key="email-address", lang=lang) }}</label>
+            <input type="email" class="form-control my-1" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   name="email_address" required>
+        </div>
+        <div class="my-3">
+            <label for="inputpass2">{{ fluent(key="request_description_note", lang=lang) }}</label>
+            <textarea class="form-control" id="inputpass2" rows="10" aria-describedby="descriptionHelp"
+                      name="request_description" required></textarea>
+        </div>
+        <div class="alert alert-info" role="alert">
+            <div class="mt-1">{{ fluent(key="infobox", lang=lang) }}</div>
+        </div>
+        {% if flash_type %}
+        {% if flash_type != "None" %}
+            {% if flash_type == "error" %}
+            <div class="alert alert-danger" role="alert">
+                {% else %}
+                <div class="alert alert-success" role="alert">
+                    {% endif %}
+                    {{flash_msg}}
+                </div>
+            {% endif %}
+            {% endif %}
+        <div class="my-3">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="col my-1">
+                        <img class="img-fluid" alt="CAPTCHA" src="data:image/png;base64,{{ captcha }}"/>
+                    </div>
+                    <label for="captchapass1">{{ fluent(key="enter_captcha", lang=lang) }}</label>
+                    <input type="text" class="form-control my-1" id="captchapass1" aria-describedby="captchaCode"
+                           name="captcha_code" required>
+                    <input type="hidden" name="captcha_hash" value="{{ captcha_hash }}">
+                    <button type="submit" class="btn btn-primary col-md-12">{{ fluent(key="submit_button", lang=lang) }}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}
